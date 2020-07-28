@@ -5,6 +5,9 @@ SET(CMAKE_BUILD_TYPE Release)
 set(CMAKE_PREFIX_PATH ${CMAKE_PREFIX_PATH} "/usr/lib/x86_64-linux-gnu/cmake")
 set(OpenCV_DIR "/usr/local/share/OpenCV")
 
+
+add_definitions(-std=c++11)
+
 project (LidarIris)
 
 find_package(PCL REQUIRED)

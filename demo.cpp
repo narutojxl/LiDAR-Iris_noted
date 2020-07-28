@@ -10,7 +10,7 @@ using namespace std;
 void OneCoupleCompare(string cloudFileName1, string cloudFileName2)
 {
     LidarIris iris(4, 18, 1.6, 0.75, 50);
-    
+
     pcl::PointCloud<pcl::PointXYZ>::Ptr cloud0(new pcl::PointCloud<pcl::PointXYZ>), cloud1(new pcl::PointCloud<pcl::PointXYZ>);
     if (pcl::io::loadPCDFile(cloudFileName1, *cloud0) == -1)
     {
@@ -29,7 +29,7 @@ void OneCoupleCompare(string cloudFileName1, string cloudFileName2)
     LidarIris::FeatureDesc fd2 = iris.GetFeature(li2);
 
     int bias;
-    auto dis = iris.Compare(fd1, fd2, &bias);
+    auto dis = iris.Compare(fd1, fd2, &bias);  //返回的是匹配计算的距离， 小于一个阈值时才认为是true loop
 
     clock_t endTime = clock();
 
